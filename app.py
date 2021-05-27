@@ -15,3 +15,10 @@ def registration():
             "email": request.form.get("email")
         }
     return render_template("sign-up.html")
+
+    @app.route("/login")
+def login():
+    try:
+        form = RegistrationForm(request.form)
+
+        return render_template("login.html")

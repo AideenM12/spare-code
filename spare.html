@@ -1,0 +1,29 @@
+<div class="row form">
+    <form class="col s12 z-depth-5" method="POST" action="{{ url_for('registration') }}">
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="username" name="username" id="username" type="text" class="validate">
+                <label for="username">Username</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="password" type="password" name="password" class="validate">
+                <label for="password">Password</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="email" type="email" name="email" class="validate">
+                <label for="email">Email</label>
+            </div>
+        </div>
+        <div class="row center-align">
+            <button type="submit">
+                Sign-Up
+            </button>
+        </div>
+</div>
+</form>
+</div>
