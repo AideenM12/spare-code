@@ -22,3 +22,7 @@ def login():
         form = RegistrationForm(request.form)
 
         return render_template("login.html")
+
+if "user" not in session:
+        flash("Please Log in to continue")
+        return redirect(url_for("login"))
