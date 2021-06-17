@@ -26,3 +26,6 @@ def login():
 if "user" not in session:
         flash("Please Log in to continue")
         return redirect(url_for("login"))
+
+ flash("You are not authorized to view this page")
+        return redirect(url_for("profile"))
