@@ -32,3 +32,13 @@
 
 
 <a href="{{ url_for('filter_reading', topic_id=topic._id) }}" class="btn center-align">Further Reading</a>
+
+{% if topic.reading_list|length > 0 %}
+
+all_articles = list(mongo.db.articles.get())
+topics = {}
+for article in all_articles:
+    if article["topic"] in topics:
+        topics["article"].append(article._id)
+    else:
+        topics["article"] = article._id
