@@ -42,3 +42,23 @@ for article in all_articles:
         topics["article"].append(article._id)
     else:
         topics["article"] = article._id
+
+
+
+
+        {% for topic in topics %}
+        {% if loop.index == 1 %}
+        
+        <div class="row">
+           <div class="col s4 offset-s4">
+              <div class="card center-align">
+                 <div class="card-content">
+               
+                 <a href="{{ url_for('filter_reading', topic_id=topic._id) }}" class="btn">Further Reading</a>
+                 </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+        {% endif %}
+        {% endfor %}
