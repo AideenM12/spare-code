@@ -29,3 +29,53 @@ if "user" not in session:
 
  flash("You are not authorized to view this page")
         return redirect(url_for("profile"))
+
+
+
+ else:
+        topic_name = list(mongo.db.topics.find().sort("topic_name", 1))
+        topics = list(mongo.db.articles.find())
+        article = mongo.db.articles.find()
+        articles = {}
+        for topic in topics:
+            if topic["article"] in topics:
+                articles["topic"].append(topic._id)
+            else:
+                print(topic["_id"])
+                articles["topic_id"] = topic["_id"]
+
+        return render_template("topics.html",
+                               topics=topics,
+                               articles=articles,
+                               article=article,
+                               topic_name=topic_name)
+
+
+
+
+
+
+
+
+
+@app.route("/topics")
+def topics():
+    if "user" not in session:
+        flash("Please Log in to continue")
+        return redirect(url_for("login"))
+    else:
+        topics = list(mongo.db.topics.find().sort("topic_name", 1))
+        return render_template("topics.html", topics=topics)
+
+ topics = list(mongo.db.articles.find())
+       
+        for topic in topics:
+            if topic["topic_name"] in topics:
+                topics["topic"].append(topic._id)
+            else:
+                print(topic["_id"])
+                topics["topic_id"] = topic["_id"]
+
+
+
+Then that's your challenge for this evening: add some articles to populate it, or find a different way to filter articles by topic (since topic_name is a field on article
