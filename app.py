@@ -79,3 +79,16 @@ def topics():
 
 
 Then that's your challenge for this evening: add some articles to populate it, or find a different way to filter articles by topic (since topic_name is a field on article
+
+
+elif request.method != "POST":
+        print("TOPICS", [t for t in topics])
+
+        return render_template("add_further_reading.html",
+                               further_reading=further_reading,
+                               topics=topics)
+
+
+elif session["user"].lower() != "admin":
+        flash("You are not authorized to view this page")
+        return redirect(url_for("profile"))
